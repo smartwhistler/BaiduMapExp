@@ -91,14 +91,16 @@ if (defined $rlt) {
 						if (defined ${$_}{"instructions"}) {
 							my $instr = Unicode::Escape::unescape${$_}{"instructions"};
 							$instr =~ s/<.*?>//g;
-							say $instr;
+							print $instr;
 						}
+						print "(";
 						if(length(${$_}{"stepOriginInstruction"}) > 0) {
-							say "单步起点:".Unicode::Escape::unescape${$_}{"stepOriginInstruction"};
+							print "单步起点:".Unicode::Escape::unescape${$_}{"stepOriginInstruction"};
 						}
 						if(length(${$_}{"stepDestinationInstruction"}) > 0) {
-							say "单步终点:".Unicode::Escape::unescape${$_}{"stepDestinationInstruction"};
+							print "单步终点:".Unicode::Escape::unescape${$_}{"stepDestinationInstruction"};
 						}
+						print ")----->\n";
 					}
 				}
 			}
